@@ -1,0 +1,44 @@
+#logo {
+    max-width: 40% !important;
+}
+.col {
+    padding: 0 !important;
+}
+#refresh {
+    float:right;
+}
+#colname {
+    text-transform:uppercase;
+    color:#466581;
+    margin: 13px 0 0 10px;
+    display:block;
+}
+
+span.label {
+    text-transform:uppercase !important;
+    font-size: .7em;
+    color: #327EB1;
+    display:block;
+}
+
+span.answer {
+    font-size: .7em;
+}
+
+.end {
+    text-align:right;
+}
+
+.list-md ion-item-options .button {
+    height: 45px !important;
+    background-color: #19232C !important;
+}
+
+.list-md ion-item-options {
+    border-bottom: 0;
+}
+
+.size {
+    font-size:28px;
+    padding:10px;
+}
