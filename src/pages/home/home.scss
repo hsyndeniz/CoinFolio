@@ -1,5 +1,6 @@
 #logo {
     max-width: 40% !important;
+  float: left !important;
 }
 .col {
     padding: 0 !important;
@@ -10,7 +11,7 @@
 #colname {
     text-transform:uppercase;
     color:#466581;
-    margin: 13px 0 0 10px;
+    margin: 1px 0 0 10px;
     display:block;
 }
 
@@ -41,4 +42,11 @@ span.answer {
 .size {
     font-size:28px;
     padding:10px;
+}
+
+.ion-button{
+  margin-right: 1em;
+}
+.item-ios {
+  border-radius: 1em;
 }

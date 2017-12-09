@@ -22,6 +22,12 @@ a{
   color: white !important;
 }
 
+ion-list {
+  padding: .2em 0em !important;
+}
+ion-note {
+  color: #0d0d0d !important;
+}
 
 @import "ionic.globals";
 
@@ -50,7 +56,8 @@ $colors: (
   danger:     #f53d3d,
   bluetxt:    #72C2F7,
   light:      #C1E6FF,
-  dark:       #222
+  dark:       #222,
+  black:      #000
 );
 
 

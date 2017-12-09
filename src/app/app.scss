@@ -26,7 +26,7 @@ ion-content {
 }
 
 .bar-button-md[icon-only] {
-    padding:10px;
+    padding:5px;
 }
 
 .scroll-content {
@@ -34,14 +34,17 @@ ion-content {
 }
 
 ion-item, .coinbtn {
-    background: #1E4871 !important;
+  /*  background: #1E4871 !important; */
+    background: #ffffff !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid #19232c !important;
-    color: #C1E6FF !important;
+    border-radius: 1em;
+    margin-bottom: .5em !important;
+    color: #000000 !important;
 }
 
 .details {
-    background-color: #102D49 !important;
+   /* background-color: #102D49 !important; */
 }
 
 .loading-md .loading-wrapper {
@@ -49,4 +52,5 @@ ion-item, .coinbtn {
     color: #C1E6FF !important;
     text-transform: uppercase;
     font-size:.8em;
+    border-radius: 2em;
 }

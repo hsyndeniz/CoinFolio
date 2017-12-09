@@ -2,10 +2,16 @@
   <ion-toolbar>
     <ion-title><img src="assets/logo.svg" id="logo"></ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="showSearch()">
+      <button class="ion-button" ion-button icon-only (click)="showSearch()">
         <ion-icon name="add"></ion-icon>
-        Add Coins
       </button>
+      <button class="ion-button" ion-button item-end icon-only color="light">
+        <ion-icon name="pricetags"></ion-icon>
+      </button>
+      <button class="ion-button" ion-button icon-only (click)="refreshCoins()" id="refresh" color="light">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,32 +19,36 @@
 <ion-content padding>
 
   <ion-grid>
-    <ion-row>
+    <ion-row style="margin-right: 1em">
       <ion-col>
-        <span id="colname">Coin Name</span>
+        <span id="colname">Coin</span>
       </ion-col>
       <ion-col>
-        <button ion-button icon-left clear (click)="refreshCoins()" id="refresh" color="light">
-          <ion-icon name="sync"></ion-icon>
-          Refresh
-        </button>
+        <span id="colname">Chart(24HR)</span>
+      </ion-col>
+      <ion-col style="float: right; text-align: right">
+        <span id="colname">Price</span>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-list *ngIf="coins">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list *ngIf="coins" style="margin: 1em !important;  ">
     <ion-item-sliding *ngFor="let coin of objectKeys(coins); let i = index" (ionDrag)="swiped(i)">
       <ion-item (click)="coinDetails(coin,i)" no-lines *ngIf="allcoins">
-
-
-          {{ coin }}
         <ion-avatar item-start *ngIf="allcoins">
           <img [src]="'https://www.cryptocompare.com'+allcoins[coin].ImageUrl" />
         </ion-avatar>
        <div *ngIf="allcoins"> {{ allcoins[coin].FullName }} </div>
-        <ion-note item-end color="bluetxt" *ngIf="coins">
-          {{coins[coin].USD | currency:'USD':true}}
-        </ion-note>
+        <div item-end id="info">
+          <ion-note item-end  *ngIf="coins">
+            {{coins[coin].USD | currency:'USD':true}}
+          </ion-note>
+        </div>
+        <ion-icon item-end name="ion-arrow-graph-up-right"></ion-icon>
 
       </ion-item>
       <ion-item-options>

@@ -10,6 +10,10 @@
 <ion-content padding>
   <ion-searchbar (ionInput)="searchCoins($event)"></ion-searchbar>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <ion-list *ngIf="allcoins">
     <button ion-item *ngFor="let coin of objectKeys(allcoins)" (click)="addCoin(coin)" class="coinbtn" no-lines>
       <ion-avatar item-start *ngIf="allcoins">

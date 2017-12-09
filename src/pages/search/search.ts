@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
+
 /**
  * Generated class for the SearchPage page.
  *
@@ -26,6 +27,10 @@ export class SearchPage {
   constructor(private storage: Storage, private _data: DataProvider, public loading: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  ionViewWillEnter() {
+
+  }
+
   ionViewDidLoad() {
     let loader = this.loading.create({
       content: 'Refreshing..',
@@ -40,7 +45,7 @@ export class SearchPage {
 
       this._data.allCoins()
         .subscribe(res => {
-          console.log(res);
+     //     console.log(res);
           this.raw = res['Data'];
           this.allcoins = res['Data'];
 
@@ -77,6 +82,13 @@ export class SearchPage {
       this.allcoins = filtered;
 
     }
+  }
+  doRefresh(refresher) {
+  //  console.log('Begin async operation', refresher);
+    setTimeout(() => {
+  //    console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
   }
 
 }

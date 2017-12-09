@@ -27,7 +27,7 @@ export class HomePage {
 
   ionViewDidLoad() {
     let loader = this.loading.create({
-      content: 'Refreshing..',
+      content: 'Loading...',
       spinner: 'bubbles'
     });
 
@@ -35,7 +35,6 @@ export class HomePage {
 
       this._data.allCoins()
         .subscribe(res => {
-          console.log(res);
           this.raw = res['Data'];
           this.allcoins = res['Data'];
 
@@ -43,16 +42,18 @@ export class HomePage {
 
         })
     });
+    this.refreshCoins();
   }
 
+
   ionViewWillEnter() {
-    this.refreshCoins();
+
   }
 
   refreshCoins() {
 
     let loader = this.loading.create({
-      content: 'Refreshing..',
+      content: 'Loading...',
       spinner: 'bubbles'
     });
 
@@ -103,7 +104,7 @@ export class HomePage {
           this._data.getChart(coin)
           .subscribe(res => {
 
-            console.log(res);
+       //     console.log(res);
 
             let coinHistory = res['Data'].map((a) => (a.close));
 
@@ -173,6 +174,15 @@ export class HomePage {
 
   showSearch() {
     this.navCtrl.push(SearchPage);
+  }
+
+  doRefresh(refresher) {
+ //   console.log('Begin async operation', refresher);
+    this.refreshCoins();
+    setTimeout(() => {
+  //    console.log('Async operation has ended');
+      refresher.complete();
+    }, 500);
   }
 
 }
