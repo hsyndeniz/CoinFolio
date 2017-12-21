@@ -6,6 +6,16 @@ The application runs cross-platform. You can run this app on both android and iO
 
 I also plan to publish on the Google Play Store and the Apple Store when we make the app perform.
 
+Your computer must have nodeJS, Ionic Framework and Cordova installed to run and develop the project.
+
+First download and install NodeJS and follow the steps below.
+
+```bash
+$ sudo npm install -g cordova
+
+$ sudo npm install -g ionic
+```
+
 If you want to test the application on your browser, follow the steps below.
 
 ## TASKS
@@ -16,12 +26,10 @@ Caching...
 Data storage with Localstorage...
 
 
-## How to install
+## How to Install & Run
 
 
 ```bash
-$ sudo npm install -g ionic cordova
-
 $ git clone https://github.com/hsynterkr/CoinFolio.git
 
 $ cd CoinFolio
