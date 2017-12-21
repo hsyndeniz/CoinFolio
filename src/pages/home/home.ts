@@ -63,7 +63,7 @@ export class HomePage {
 
         // If the value is not set, then:
         if(!val) {
-          this.likedCoins.push('BTC','ETH','BCH','LTC','BTG','IOT','ETC','XMR','NEO');
+          this.likedCoins.push('BTC','ETH','BCH','LTC','BTG','IOT','ETC');
           this.storage.set('likedCoins', this.likedCoins);
 
           this._data.getCoins(this.likedCoins)
