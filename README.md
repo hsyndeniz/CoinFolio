@@ -2,9 +2,15 @@ CoinFolio is a price tracking application for crypto money. It was written using
 
 The application runs cross-platform. You can run this app on both android and iOS devices.
 
+I also plan to publish on the Google Play Store and the Apple Store when we make the app perform.
+
 If you want to test the application on your browser, follow the steps below.
 
-I also plan to publish on the Google Play Store and the Apple Store when we make the app perform.
+## TASKS
+Compressing pictures
+Caching
+Data storage with Localstorage
+
 
 ## How to install
 
