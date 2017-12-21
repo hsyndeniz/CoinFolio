@@ -40,3 +40,6 @@ $ ionic serve -l
 ```
 
 Go to the "localhost:8100"
+
+![ :) ](https://res.cloudinary.com/hpiynhbhq/image/upload/v1513829646/vq5lglexrddsnphvidfe.png)
+
