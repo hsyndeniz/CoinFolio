@@ -1,4 +1,6 @@
-CoinFolio is a price tracking application for crypto money. It was written using Angular and Typescript with Ionic Framework.
+CoinFolio is a price tracking application for crypto money. 
+
+It was written using Angular and Typescript with Ionic Framework.
 
 The application runs cross-platform. You can run this app on both android and iOS devices.
 
