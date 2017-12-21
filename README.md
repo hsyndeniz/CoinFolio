@@ -7,9 +7,11 @@ I also plan to publish on the Google Play Store and the Apple Store when we make
 If you want to test the application on your browser, follow the steps below.
 
 ## TASKS
-Compressing pictures
-Caching
-Data storage with Localstorage
+Compressing pictures...
+
+Caching...
+
+Data storage with Localstorage...
 
 
 ## How to install
