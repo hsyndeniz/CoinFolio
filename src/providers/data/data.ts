@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
+
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 /*
   Generated class for the DataProvider provider.
@@ -37,10 +42,8 @@ export class DataProvider {
   }
 
   allCoins() {
-    let headers = new HttpHeaders()
-      .set("Access-Control-Allow-Origin", "*");
-
-      return this._http.get("https://www.cryptocompare.com/api/data/coinlist/", {headers: headers})
-        .map(result => this.result = result);
+    return this._http.get("https://min-api.cryptocompare.com/data/all/coinlist")
+      .map(result => this.result = result);
   }
+
 }

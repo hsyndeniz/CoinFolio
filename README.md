@@ -1,14 +1,12 @@
-CoinFolio is a price tracking application for crypto money. 
+# Coinfolio
 
-It was written using Angular and Typescript with Ionic Framework.
+Coinfolio is a price tracking app for cryptocurrency. This app is mainly written in Angular using the Ionic framework to be able to run in a cross-platform manner. In other words, the same code base will run in iOS and Android without any problem.
 
-The application runs cross-platform. You can run this app on both android and iOS devices.
 
-I also plan to publish on the Google Play Store and the Apple Store when we make the app perform.
+## Prerequisites to run
 
-Your computer must have nodeJS, Ionic Framework and Cordova installed to run and develop the project.
-
-First download and install NodeJS and follow the steps below.
+Before installing the dependencies, you should have installed [NodeJs](https://nodejs.org/) in your environment
+In order to run this application, you first need to have installed ionic cli and cordova globally.
 
 ```bash
 $ sudo npm install -g cordova
@@ -16,18 +14,7 @@ $ sudo npm install -g cordova
 $ sudo npm install -g ionic
 ```
 
-If you want to test the application on your browser, follow the steps below.
-
-## TASKS
-Compressing pictures...
-
-Caching...
-
-Data storage with Localstorage...
-
-
 ## How to Install & Run
-
 
 ```bash
 $ git clone https://github.com/hsynterkr/CoinFolio.git
@@ -39,7 +26,7 @@ $ npm install
 $ ionic serve -l
 ```
 
-Go to the "localhost:8100"
+And a tab in your current default browser will open in the address http://127.0.0.1:8100.
 
-![ :) ](https://res.cloudinary.com/hpiynhbhq/image/upload/v1513829646/vq5lglexrddsnphvidfe.png)
+![:D](https://steemitimages.com/DQmT933hYsmDhdghdfoGYm8WEw2zVvGJg8iRcF5qatL3Hmu/Screen%20Shot%202018-01-27%20at%201.02.25%20AM.png)
 

@@ -2,12 +2,11 @@
   <ion-toolbar>
     <ion-title><img src="assets/logo.png" id="logo"></ion-title>
     <ion-buttons end>
+
       <button class="ion-button" ion-button icon-only (click)="showSearch()">
         <ion-icon name="add"></ion-icon>
       </button>
-      <button class="ion-button" ion-button item-end icon-only color="light">
-        <ion-icon name="pricetags"></ion-icon>
-      </button>
+
       <button class="ion-button" ion-button icon-only (click)="refreshCoins()" id="refresh" color="light">
         <ion-icon name="sync"></ion-icon>
       </button>
@@ -16,27 +15,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-
-  <ion-grid>
-    <ion-row style="margin-right: 1em">
-      <ion-col>
-        <span id="colname">Coin</span>
-      </ion-col>
-      <ion-col>
-        <span id="colname">Chart(24HR)</span>
-      </ion-col>
-      <ion-col style="float: right; text-align: right">
-        <span id="colname">Price</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content>
 
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list *ngIf="coins" style="margin: 1em !important;  ">
+  <ion-list *ngIf="coins" class="padding-top">
     <ion-item-sliding *ngFor="let coin of objectKeys(coins); let i = index" (ionDrag)="swiped(i)">
       <ion-item (click)="coinDetails(coin,i)" no-lines *ngIf="allcoins">
         <ion-avatar item-start *ngIf="allcoins">
@@ -54,31 +39,31 @@
       <ion-item-options>
         <button ion-button (click)="removeCoin(coin)"><ion-icon name="close" class="size"></ion-icon></button>
       </ion-item-options>
-    <ion-item class="details" *ngIf="detailToggle[i]" no-lines>
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <span class="label">Market Cap</span>
-            <span class="answer">{{ details.MKTCAP }}</span>
-          </ion-col>
-          <ion-col>
-            <span class="label">Change (24HR)</span>
-            <span class="answer">{{ details.CHANGE24HOUR }} ({{ details.CHANGEPCT24HOUR }}%)</span>
-          </ion-col>
-          <ion-col class="end">
-            <span class="label">High (24HR)</span>
-            <span class="answer">{{ details.HIGH24HOUR }}</span>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <br>
-            <span class="label">Price (30 Days)</span>
-            <canvas id="canvas{{i}}">{{ chart[i] }}</canvas>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-item>
-</ion-item-sliding>
-</ion-list>
+      <ion-item class="details" *ngIf="detailToggle[i]" no-lines>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <span class="label">Market Cap</span>
+              <span class="answer">{{ details.MKTCAP }}</span>
+            </ion-col>
+            <ion-col>
+              <span class="label">Change (24HR)</span>
+              <span class="answer">{{ details.CHANGE24HOUR }} ({{ details.CHANGEPCT24HOUR }}%)</span>
+            </ion-col>
+            <ion-col class="end">
+              <span class="label">High (24HR)</span>
+              <span class="answer">{{ details.HIGH24HOUR }}</span>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <br>
+              <span class="label">Price (30 Days)</span>
+              <canvas id="canvas{{i}}">{{ chart[i] }}</canvas>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

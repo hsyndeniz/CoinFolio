@@ -21,20 +21,12 @@ ion-content {
     font-family: 'Source Sans Pro';
 }
 
-.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    background-color: rgba(0, 0, 0, 0.15) !important;
-}
-
-.bar-button-md[icon-only] {
-    padding:5px;
-}
-
-.scroll-content {
-    padding: 0 !important;
+.tabs-ios .tabbar {
+    border-top: 0.55px solid rgba(0, 0, 0, 0.3) !important;
+    background: none !important
 }
 
 ion-item, .coinbtn {
-  /*  background: #1E4871 !important; */
     background: #ffffff !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid #19232c !important;
@@ -43,14 +35,37 @@ ion-item, .coinbtn {
     color: #000000 !important;
 }
 
-.details {
-   /* background-color: #102D49 !important; */
-}
-
-.loading-md .loading-wrapper {
+.loading-md .loading-wrapper, .loading-ios .loading-wrapper {
     background:#102D49 !important;
     color: #C1E6FF !important;
     text-transform: uppercase;
     font-size:.8em;
     border-radius: 2em;
 }
+
+.searchbar-ios .searchbar-input {
+    background-color: #fff !important;
+}
+
+.has-refresher > .scroll-content {
+    border: none !important;
+  }
+  
+  .refresher-pulling-icon, .refresher-refreshing-icon {
+    color: white !important;
+  }
+
+ion-spinner * {
+    width: 28px;
+    height: 28px;
+    stroke: white !important;
+    fill: transparent !important;
+  }
+  
+  ion-spinner {
+    margin: 0 auto;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

@@ -1,6 +1,29 @@
 page-search {
 
+  .list-md{
+    margin:0 1em;
+  }
+
+  .card {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+  
+  .noResults {
+    height: 100% !important;
+    justify-content: center !important;
+    color: white !important;
+
+    p {
+      font-size: 1.2em !important;
+    }
+  }
+  
+  .notFound {
+    font-size: 7.5em !important;
+    color: white !important;
+  }
+
 }
-.list-md{
-  margin:0 1em;
-}
+
