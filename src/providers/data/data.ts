@@ -40,7 +40,7 @@ export class DataProvider {
     let headers = new HttpHeaders()
       .set("Access-Control-Allow-Origin", "*");
 
-      return this._http.get("https://www.cryptocompare.com/api/data/coinlist/", {headers: headers})
+      return this._http.get("https://min-api.cryptocompare.com/data/all/coinlist")
         .map(result => this.result = result);
   }
 }

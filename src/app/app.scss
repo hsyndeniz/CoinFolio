@@ -21,10 +21,6 @@ ion-content {
     font-family: 'Source Sans Pro';
 }
 
-.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
-    background-color: rgba(0, 0, 0, 0.15) !important;
-}
-
 .bar-button-md[icon-only] {
     padding:5px;
 }
@@ -43,11 +39,7 @@ ion-item, .coinbtn {
     color: #000000 !important;
 }
 
-.details {
-   /* background-color: #102D49 !important; */
-}
-
-.loading-md .loading-wrapper {
+.loading-md .loading-wrapper, .loading-ios .loading-wrapper {
     background:#102D49 !important;
     color: #C1E6FF !important;
     text-transform: uppercase;
