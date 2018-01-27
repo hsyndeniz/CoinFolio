@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { NavController, IonicPage, Events } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
 import { Chart } from 'chart.js';
@@ -24,9 +24,13 @@ export class HomePage {
   constructor(public navCtrl: NavController, 
               private _data: DataProvider, 
               private storage: Storage,
-              public loading: LoadingController) {
+              public loading: LoadingController,
+              public events: Events) {
 
     this.storage.remove('likedCoins');
+    this.events.subscribe("coin:event", () => {
+      this.refreshCoins();
+    })
 
   }
 
@@ -49,12 +53,6 @@ export class HomePage {
     });
     this.refreshCoins();
   }
-
-
-  ionViewWillEnter() {
-
-  }
-
   refreshCoins() {
 
     let loader = this.loading.create({

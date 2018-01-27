@@ -7,12 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { DataProvider } from '../providers/data/data';
 import { IonicStorageModule } from '@ionic/storage';
-import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
-    MyApp,
-    TabsPage
+    MyApp
   ],
   imports: [
     BrowserModule,
@@ -22,10 +20,7 @@ import { TabsPage } from '../pages/tabs/tabs';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    SearchPage,
-    TabsPage
+    MyApp
   ],
   providers: [
     StatusBar,

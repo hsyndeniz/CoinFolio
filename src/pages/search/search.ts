@@ -1,15 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, ToastController } from 'ionic-angular';
 import { DataProvider } from '../../providers/data/data';
 import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
-
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,17 +16,24 @@ export class SearchPage {
   raw = [];
   liked = [];
   allcoins:any;
+  filteredItems: any;
+  searchTerm: string;
 
-  constructor(private storage: Storage, private _data: DataProvider, public loading: LoadingController, public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewWillEnter() {
-
+  constructor(private storage: Storage, 
+              private _data: DataProvider, 
+              public loading: LoadingController, 
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              public events: Events,
+              private toastCtrl: ToastController) {}
+  
+  ionViewWillLeave() {
+    this.events.publish('coin:event');
   }
 
   ionViewDidLoad() {
     let loader = this.loading.create({
-      content: 'Refreshing..',
+      content: 'Loading Coins..',
       spinner: 'bubbles'
     });
 
@@ -45,7 +45,6 @@ export class SearchPage {
 
       this._data.allCoins()
         .subscribe(res => {
-     //     console.log(res);
           this.raw = res['Data'];
           this.allcoins = res['Data'];
 
@@ -60,35 +59,55 @@ export class SearchPage {
   }
 
   addCoin(coin) {
-    this.likedCoins.push(coin);
-    this.storage.set('likedCoins',this.likedCoins);
+    if (this.likedCoins.includes(coin)) {
+      let index = this.likedCoins.indexOf(coin);
+      this.likedCoins.splice(index, 1);
+      this.storage.set('likedCoins',this.likedCoins);
+      this.showToast(this.allcoins[coin].CoinName, 'removed')
+    }
+    else {
+      this.likedCoins.push(coin);
+      this.storage.set('likedCoins',this.likedCoins);
+      this.showToast(this.allcoins[coin].CoinName, 'added')
+    }
+    
   }
 
-  searchCoins(ev: any) {
+  showToast(msg: string, action: string) {
+    let toast = this.toastCtrl.create({
+      message: msg + ' was ' + action + ' successfully',
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    toast.present();
+  }
 
-    let val = ev.target.value;
+  searchCoins() {
 
     this.allcoins = this.raw;
 
-    if (val && val.trim() != '') {
+    if (this.searchTerm && this.searchTerm.trim() != '') {
 
       const filtered = Object.keys(this.allcoins)
-        .filter(key => val.toUpperCase().includes(key))
+        .filter(key => this.searchTerm.toUpperCase().includes(key))
         .reduce((obj,key) => {
           obj[key] = this.allcoins[key];
           return obj;
         }, {});
 
       this.allcoins = filtered;
+      this.filteredItems = filtered
 
     }
+
+    else {
+      this.filteredItems = [];
+    }
   }
-  doRefresh(refresher) {
-  //  console.log('Begin async operation', refresher);
-    setTimeout(() => {
-  //    console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
+
+  onCancelSearch() {
+    this.filteredItems = [];
   }
 
 }

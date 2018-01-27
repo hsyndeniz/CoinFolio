@@ -1,24 +1,22 @@
 
 page-home {
 
+    .padding-top {
+        padding-top: 16px !important;
+    }
+
+    .list-md, .list-ios {
+        margin: 0 1em !important;
+    }
+
     #logo {
         max-width: 70% !important;
-        float: left !important;
-    }
-
-    .col {
-        padding: 0 !important;
-    }
-
-    #refresh {
-        float:right;
     }
 
     #colname {
-        text-transform:uppercase;
-        color:#466581;
-        margin: 1px 0 0 10px;
-        display:block;
+        text-transform: uppercase;
+        color:white;
+        padding: 2px;
     }
 
     span.label {

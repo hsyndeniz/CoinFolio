@@ -21,16 +21,12 @@ ion-content {
     font-family: 'Source Sans Pro';
 }
 
-.bar-button-md[icon-only] {
-    padding:5px;
-}
-
-.scroll-content {
-    padding: 0 !important;
+.tabs-ios .tabbar {
+    border-top: 0.55px solid rgba(0, 0, 0, 0.3) !important;
+    background: none !important
 }
 
 ion-item, .coinbtn {
-  /*  background: #1E4871 !important; */
     background: #ffffff !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid #19232c !important;
@@ -45,4 +41,8 @@ ion-item, .coinbtn {
     text-transform: uppercase;
     font-size:.8em;
     border-radius: 2em;
+}
+
+.searchbar-ios .searchbar-input {
+    background-color: #fff !important;
 }

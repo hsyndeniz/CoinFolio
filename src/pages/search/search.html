@@ -4,18 +4,32 @@
     <ion-title>Add Coins</ion-title>
   </ion-navbar>
 
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="searchCoins($event)" (ionCancel)="onCancelSearch()"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 
-<ion-content padding>
-  <ion-searchbar (ionInput)="searchCoins($event)"></ion-searchbar>
+<ion-content>
 
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+  <ion-grid class="noResults" *ngIf="!filteredItems || filteredItems.length == 0">
+    <ion-row>
+      <ion-col text-center>
+        <ion-card>
+          <ion-card-header>
+            <ion-icon name="search" class="notFound"></ion-icon>
+          </ion-card-header>
+          <ion-card-content>
+            Search the coin you are looking for! Hint: try BTC!
+          </ion-card-content>
+        </ion-card>        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <ion-list *ngIf="allcoins">
-    <button ion-item *ngFor="let coin of objectKeys(allcoins)" (click)="addCoin(coin)" class="coinbtn" no-lines>
+  <ion-list *ngIf="filteredItems">
+    <button ion-item *ngFor="let coin of objectKeys(filteredItems)" (click)="addCoin(coin)" class="coinbtn" no-lines>
       <ion-avatar item-start *ngIf="allcoins">
         <img *ngIf="allcoins" [src]="'https://www.cryptocompare.com'+allcoins[coin].ImageUrl" />
       </ion-avatar>
