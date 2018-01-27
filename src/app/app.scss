@@ -46,3 +46,26 @@ ion-item, .coinbtn {
 .searchbar-ios .searchbar-input {
     background-color: #fff !important;
 }
+
+.has-refresher > .scroll-content {
+    border: none !important;
+  }
+  
+  .refresher-pulling-icon, .refresher-refreshing-icon {
+    color: white !important;
+  }
+
+ion-spinner * {
+    width: 28px;
+    height: 28px;
+    stroke: white !important;
+    fill: transparent !important;
+  }
+  
+  ion-spinner {
+    margin: 0 auto;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
